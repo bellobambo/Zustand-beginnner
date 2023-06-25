@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react';
-import useFriendsPostReactor from '../store/slices/reactors/useFriendsPostReactor';
-import useStore from '../store/useStore';
+import React from "react";
+import useFriendsPostsReactor from "../store/reactors/useFriendsPostsReactor";
+import useStore from "../store/useStore";
 
 const Posts = () => {
     const fetchPosts = useStore((state) => state.fetchPosts);
-    const posts = useFriendsPostReactor()
+    const posts = useFriendsPostsReactor();
 
-
-    useEffect(() => {
+    React.useEffect(() => {
         fetchPosts();
     }, [fetchPosts]);
-
-
 
     return (
         <div>

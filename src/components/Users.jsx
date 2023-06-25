@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
-import useStore from '../store/useStore';
+import * as React from "react";
+import useStore from "../store/useStore";
 
 const Users = () => {
-    const { users, fetchUsers, addToFriends } = useStore();
+    const users = useStore((state) => state.users);
+    const fetchUsers = useStore((state) => state.fetchUsers);
+    const addToFriends = useStore((state) => state.addToFriends);
 
-    useEffect(() => {
+    React.useEffect(() => {
         fetchUsers();
     }, [fetchUsers]);
 
